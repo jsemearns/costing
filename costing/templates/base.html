@@ -11,6 +11,7 @@
         href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.0.2-alpha/dist/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet" />
+        {% block css %}{% endblock %}
 </head>
 
 <body>
@@ -29,6 +30,22 @@
     <main>
         <div class="section">
             <div class="container">
+                {% if messages %}
+                <div class="card-panel red darken-3"
+                    style="padding: 12px; color:white;">
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if
+                            message.tags
+                            %}
+                            class="{{ message.tags }}"
+                            {%
+                            endif
+                            %}>{{ message }}</li>
+                            {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
                 {% block content %}
                 {% endblock %}
             </div>

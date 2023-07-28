@@ -1,6 +1,85 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Home{% endblock %}
 
+{% block css %}
+<style>
+    .index-card {
+        margin: 10px;
+        flex: 1;
+    }
+
+    .index-container {
+        display: flex;
+    }
+
+    .card {
+        border-radius: 0;
+    }
+
+    .card-image {
+        max-height: 240px;
+        min-height: 240px;
+        overflow: hidden;
+    }
+
+    .card-action {
+        display: flex;
+    }
+
+    .card-action>a {
+        flex: 1;
+    }
+
+    .card-content {
+        padding: 12px 24px !important;
+    }
+
+    .card-content>span {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-hello world!
+<div class="container index-container">
+    <div class="col s6 index-card">
+        <div class="card">
+            <div class="card-image">
+                <img src="{% static 'webapp/ingredients.jpg' %}">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <span>
+                        <i class="small material-icons">toc</i>
+                        Ingredients
+                    </span>
+                </div>
+                <div class="card-action">
+                    <a href="#">Manage Ingredients</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s6 index-card">
+        <div class="card">
+            <div class="card-image">
+                <img src="{% static 'webapp/recipe.jpg' %}">
+            </div>
+            <div class="card-stacked">
+                <div class="card-content">
+                    <span>
+                        <i class="small material-icons">restaurant_menu</i>
+                        Recipes
+                    </span>
+                </div>
+                <div class="card-action">
+                    <a href="#">Manage Recipes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
